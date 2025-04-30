@@ -4,10 +4,18 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 
 const app = express();
+
+// Токен вашего бота и chat_id
 const TELEGRAM_TOKEN = '7991694639:AAEqlqfzYpUy4vy-_e8K-yWYPyz9nEeov9s'; // Замените на свой токен
 const CHAT_ID = '1395598568'; // Замените на свой chat ID
 
-app.use(cors());
+// Настройка CORS, разрешаем запросы с любых источников
+app.use(cors({
+  origin: '*', // Разрешаем все источники
+  methods: ['GET', 'POST'], // Разрешаем методы
+}));
+
+// Использование body-parser для парсинга JSON и URL-encoded данных
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -16,6 +24,7 @@ app.post('/send-data', async (req, res) => {
   const message = `Новый заказ от ${userName},\nТелефон номер: ${userPhone}`;
 
   try {
+    // Отправка сообщения в Telegram через API
     await axios.post(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
       chat_id: CHAT_ID,
       text: message,
