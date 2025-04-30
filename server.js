@@ -1,11 +1,11 @@
 import express from 'express';
 import axios from 'axios';
 import bodyParser from 'body-parser';
-import cors from 'cors'; // <-- Add this line
+import cors from 'cors';
 
 const app = express();
-const TELEGRAM_TOKEN = '7991694639:AAEqlqfzYpUy4vy-_e8K-yWYPyz9nEeov9s'; // Replace with your bot token
-const CHAT_ID = '1395598568'; // Replace with your Telegram chat ID
+const TELEGRAM_TOKEN = '7991694639:AAEqlqfzYpUy4vy-_e8K-yWYPyz9nEeov9s'; // Замените на свой токен
+const CHAT_ID = '1395598568'; // Замените на свой chat ID
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -27,6 +27,8 @@ app.post('/send-data', async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log('Сервер работает на порту 5000');
+// Используем переменную окружения для порта, если она не задана, то используем 5000
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`Сервер работает на порту ${port}`);
 });
