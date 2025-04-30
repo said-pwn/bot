@@ -14,7 +14,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/said-pwn/bot/issues"
   },
@@ -24,3 +24,5 @@
     "telegraf": "^4.16.3"
   }
 }
+
+
