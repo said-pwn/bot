@@ -6,7 +6,7 @@ import cors from 'cors';
 const app = express();
 
 // Токен вашего бота и chat_id
-const TELEGRAM_TOKEN = '7991694639:AAEqlqfzYpUy4vy-_e8K-yWYPyz9nEeov9s'; // Замените на свой токен
+const TELEGRAM_TOKEN = '8015030525:AAFoBZZnA8TBl8TuddVAyJUb9FdAeatSqiM'; // Замените на свой токен
 const CHAT_ID = '1395598568'; // Замените на свой chat ID
 
 // Настройка CORS, разрешаем запросы с любых источников
